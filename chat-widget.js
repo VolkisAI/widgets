@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
   chatIframeContainer.id = "chatIframeContainer";
   chatIframeContainer.className = "chat-iframe-container";
   chatIframeContainer.style.display = 'none';
-  chatIframeContainer.innerHTML = '<div class="close-button" id="closeButton">×</div><iframe src="https://app.chatiq.ai/version-test/chatbot/client/' + uniqueUserPath + '" name="myiFrame" scrolling="yes"></iframe>';
+  chatIframeContainer.innerHTML = '<div class="close-button" id="closeButton">×</div><iframe src="https://app.chatiq.ai/version-test/chatbot/' + uniqueUserPath + '" name="myiFrame" scrolling="yes"></iframe>';
 
   document.body.appendChild(chatWidget);
   document.body.appendChild(chatIframeContainer);
