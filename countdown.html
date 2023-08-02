@@ -54,7 +54,18 @@
 
       var clock = $(".timer").FlipClock(seconds, {
         countdown: true,
-        clockFace: 'DailyCounter'
+        clockFace: 'DailyCounter',
+        callbacks: {
+          interval: function() {
+            // Get the current number of days
+            var days = clock.getTime().getDays();
+            // Remove leading zeros by converting to a number
+            days = Number(days);
+            // Update the day's display
+            clock.getTime().days = days;
+            clock.flip(); // Update the display
+          }
+        }
       });
     });
   </script>
