@@ -10,11 +10,11 @@
       background-color: transparent;
       margin: 0;
       padding: 0;
-      overflow: hidden; /* Prevents scrolling */
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh; /* Full viewport height */
+      height: 100vh;
     }
 
     .flip-clock-wrapper {
@@ -26,7 +26,11 @@
     .flip-clock-divider.hours,
     .flip-clock-divider.minutes,
     .flip-clock-divider.seconds {
-      width: 20px; /* Increase space between the cards */
+      width: 20px;
+    }
+
+    .flip-clock-label {
+      display: none; /* Hide the labels */
     }
   </style>
 </head>
@@ -38,12 +42,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
   <script>
     $(document).ready(function() {
-      // Set the target date
       var targetDate = new Date("09/09/2023");
       var currentDate = new Date();
       var seconds = (targetDate - currentDate) / 1000;
 
-      // Initialize FlipClock
       var clock = $(".timer").FlipClock(seconds, {
         countdown: true,
         clockFace: 'DailyCounter'
