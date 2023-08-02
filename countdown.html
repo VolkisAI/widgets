@@ -4,50 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown Timer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.css">
   <style>
     body {
       background-color: transparent;
-      margin: 0;
-      padding: 0;
-      overflow: hidden; /* Prevents scrolling */
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh; /* Full viewport height */
-      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
     }
-
-    #timer {
-      font-size: 32px;
-      text-align: center;
+    .flip-clock-wrapper {
+      max-width: 480px;
     }
   </style>
 </head>
 <body>
-  <div id="timer"></div>
+  <div class="flip-clock-wrapper">
+    <div class="timer"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
   <script>
-    function updateTimer() {
+    $(document).ready(function() {
       var targetDate = new Date("09/09/2023");
       var currentDate = new Date();
-      var distance = targetDate - currentDate;
+      var seconds = (targetDate - currentDate) / 1000;
 
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("timer").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("timer").innerHTML = "EXPIRED";
-      }
-    }
-
-    // Update the timer every second
-    var x = setInterval(updateTimer, 1000);
-    updateTimer(); // Call immediately to avoid 1-second delay
+      var clock = $(".timer").FlipClock(seconds, {
+        countdown: true,
+        clockFace: 'DailyCounter'
+      });
+    });
   </script>
 </body>
 </html>
