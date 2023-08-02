@@ -8,16 +8,25 @@
   <style>
     body {
       background-color: transparent;
-    }
-    .flip-clock-wrapper {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-width: 460px;
-      margin: 3em auto 2em;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevents scrolling */
       display: flex;
       justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full viewport height */
+    }
+
+    .flip-clock-wrapper {
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    .flip-clock-divider.days,
+    .flip-clock-divider.hours,
+    .flip-clock-divider.minutes,
+    .flip-clock-divider.seconds {
+      width: 20px; /* Increase space between the cards */
     }
   </style>
 </head>
