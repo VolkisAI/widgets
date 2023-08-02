@@ -42,9 +42,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
   <script>
     $(document).ready(function() {
-      var targetDate = new Date("09/08/2023");
-      var currentDate = new Date();
-      var seconds = (targetDate - currentDate) / 1000;
+      // Get London time
+      var options = { timeZone: 'Europe/London', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+      var formatter = new Intl.DateTimeFormat([], options);
+      var londonDate = new Date(formatter.format(new Date()));
+
+      // Set target date (in UK date format)
+      var targetDate = new Date("08/09/2023");
+
+      var seconds = (targetDate - londonDate) / 1000;
 
       var clock = $(".timer").FlipClock(seconds, {
         countdown: true,
