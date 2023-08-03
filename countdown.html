@@ -18,7 +18,7 @@
     }
 
     .flip-clock-wrapper {
-      max-width: 100%; /* Allow full width */
+      max-width: 100%;
       margin: 0 auto;
     }
 
@@ -26,21 +26,29 @@
     .flip-clock-divider.hours,
     .flip-clock-divider.minutes,
     .flip-clock-divider.seconds {
-      width: 10px; /* Reduce space between the cards */
+      width: 10px;
     }
 
     .flip-clock-label {
-      display: none; /* Hide the labels */
+      display: none;
     }
 
-    /* Smaller font size and layout for screens less than 320px wide */
+    /* Custom styles for responsiveness */
+    .flip-clock-wrapper ul li {
+      line-height: 50px; /* Example value */
+    }
+
+    .flip-clock-wrapper ul li a div div.inn {
+      font-size: 1rem; /* Example value */
+    }
+
     @media (max-width: 320px) {
       .flip-clock-wrapper ul {
-        width: 20%; /* Reduce the width of each card */
+        width: 20%;
       }
 
-      .flip-clock-wrapper li a div div.inn {
-        font-size: 1rem; /* Reduce font size */
+      .flip-clock-wrapper ul li a div div.inn {
+        font-size: 1rem;
       }
     }
   </style>
@@ -53,15 +61,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
   <script>
     $(document).ready(function() {
-      // Get London time
-      var options = { timeZone: 'Europe/London', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-      var formatter = new Intl.DateTimeFormat([], options);
-      var londonDate = new Date(formatter.format(new Date()));
-
-      // Set target date (in UK date format)
       var targetDate = new Date("08/09/2023");
-
-      var seconds = (targetDate - londonDate) / 1000;
+      var currentDate = new Date();
+      var seconds = (targetDate - currentDate) / 1000;
 
       var clock = $(".timer").FlipClock(seconds, {
         countdown: true,
