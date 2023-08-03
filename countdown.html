@@ -20,6 +20,14 @@
     .flip-clock-wrapper {
       max-width: 800px;
       margin: 0 auto;
+      font-size: 1.5em; /* Default font size */
+    }
+
+    /* Smaller font size for screens less than 320px wide */
+    @media (max-width: 320px) {
+      .flip-clock-wrapper {
+        font-size: 1em;
+      }
     }
 
     .flip-clock-divider.days,
