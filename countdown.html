@@ -18,33 +18,29 @@
     }
 
     .flip-clock-wrapper {
-      max-width: 100%;
+      max-width: 100%; /* Allow full width */
       margin: 0 auto;
     }
 
-    .flip-clock-wrapper ul {
-      width: 25%;
-    }
-
-    .flip-clock-wrapper li a div div.inn {
-      font-size: 1.5rem;
-    }
-
-    .flip-clock-divider {
-      width: 10px;
+    .flip-clock-divider.days,
+    .flip-clock-divider.hours,
+    .flip-clock-divider.minutes,
+    .flip-clock-divider.seconds {
+      width: 10px; /* Reduce space between the cards */
     }
 
     .flip-clock-label {
-      display: none;
+      display: none; /* Hide the labels */
     }
 
+    /* Smaller font size and layout for screens less than 320px wide */
     @media (max-width: 320px) {
       .flip-clock-wrapper ul {
-        width: 20%;
+        width: 20%; /* Reduce the width of each card */
       }
 
       .flip-clock-wrapper li a div div.inn {
-        font-size: 1rem;
+        font-size: 1rem; /* Reduce font size */
       }
     }
   </style>
