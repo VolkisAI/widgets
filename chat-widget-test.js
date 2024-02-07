@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var scriptTag = document.getElementById('chat-widget-script');
   var uniqueUserPath = scriptTag.getAttribute('data-user-path');
   var width = scriptTag.getAttribute('data-width') || '400px'; // Default width if not specified
-  var height = scriptTag.getAttribute('data-height') || '600px'; // Default height if not specified
+  var height = scriptTag.getAttribute('data-height') || '800px'; // Default height if not specified
   var iconUrl = scriptTag.getAttribute('data-icon-url') || '//s3.amazonaws.com/appforest_uf/f1680870188261x782123797109605800/bubble2.png'; // Default icon if not specified
 
   var chatWidget = document.createElement("div");
