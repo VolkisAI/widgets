@@ -14,19 +14,22 @@ document.addEventListener("DOMContentLoaded", function() {
   chatIframeContainer.id = "chatIframeContainer";
   chatIframeContainer.className = "chat-iframe-container";
   chatIframeContainer.style.display = 'none';
-  chatIframeContainer.style.width = width;
-  chatIframeContainer.style.height = height;
   chatIframeContainer.innerHTML = '<div class="close-button" id="closeButton">×</div><iframe src="https://app.chatiq.ai/version-test/chatbot/' + uniqueUserPath + '" name="myiFrame" style="width:100%; height:100%;"></iframe>';
 
   document.body.appendChild(chatWidget);
   document.body.appendChild(chatIframeContainer);
 
+  // Apply custom width and height only for non-mobile devices immediately
+  if(window.innerWidth > 767){
+    chatIframeContainer.style.width = width;
+    chatIframeContainer.style.height = height;
+  }
+
   document.getElementById('chatWidget').addEventListener('click', function() {
-    var chatIframeContainer = document.getElementById('chatIframeContainer');
     chatIframeContainer.style.display = (chatIframeContainer.style.display === 'none') ? 'block' : 'none';
   });
 
   document.getElementById('closeButton').addEventListener('click', function() {
-    document.getElementById('chatIframeContainer').style.display = 'none';
+    chatIframeContainer.style.display = 'none';
   });
 });
