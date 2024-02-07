@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       // Set fixed size for screens wider than 767px
       chatIframeContainer.style.width = '450px';
-      chatIframeContainer.style.height = '800px';
+      chatIframeContainer.style.height = '750px';
     }
   }
 
