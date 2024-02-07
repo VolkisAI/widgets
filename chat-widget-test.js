@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if(window.innerWidth <= 767){
       // Apply responsive design on mobile devices
       chatIframeContainer.style.width = '90vw';
-      chatIframeContainer.style.height = '80vh';
+      chatIframeContainer.style.height = '96vh';
     } else {
       // Set fixed size for screens wider than 767px
       chatIframeContainer.style.width = '450px';
