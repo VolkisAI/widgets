@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.getElementById('chatWidget').addEventListener('click', function() {
     var chatIframeContainer = document.getElementById('chatIframeContainer');
+    if(window.innerWidth > 767){ // Apply custom width and height only for non-mobile devices
+    chatIframeContainer.style.width = width; // Apply width from data attribute
+    chatIframeContainer.style.height = height; // Apply height from data attribute
     chatIframeContainer.style.display = (chatIframeContainer.style.display === 'none') ? 'block' : 'none';
   });
 
