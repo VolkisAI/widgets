@@ -21,11 +21,12 @@ document.addEventListener("DOMContentLoaded", function() {
   document.body.appendChild(chatWidget);
   document.body.appendChild(chatIframeContainer);
 
-  chatWidget.addEventListener('click', function() {
-    chatIframeContainer.style.display = chatIframeContainer.style.display === 'none' ? 'block' : 'none';
+  document.getElementById('chatWidget').addEventListener('click', function() {
+    var chatIframeContainer = document.getElementById('chatIframeContainer');
+    chatIframeContainer.style.display = (chatIframeContainer.style.display === 'none') ? 'block' : 'none';
   });
 
   document.getElementById('closeButton').addEventListener('click', function() {
-    chatIframeContainer.style.display = 'none';
+    document.getElementById('chatIframeContainer').style.display = 'none';
   });
 });
